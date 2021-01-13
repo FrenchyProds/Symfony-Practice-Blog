@@ -1,0 +1,21 @@
+# config/validator/validation.yaml      
+    App\Entity\Article:
+        properties:
+            title:
+                - NotBlank: ~
+                - Length: 
+                    min: 10
+                    max: 100
+                    minMessage: 'The title must be atleast {{ limit }} characters long'
+                    maxMessage: 'The title must be at most {{ limit }} characters long'
+            content:
+                - NotBlank: ~
+                - Length:
+                    min: 20
+                    max: 255
+                    minMessage: 'The content must be atleast {{ limit }} characters long'
+                    maxMessage: 'The content must be at most {{ limit }} characters long'
+            image:
+                - NotBlank: ~
+                - Url:
+                    message: 'The url {{ value }} is not a valid url'
