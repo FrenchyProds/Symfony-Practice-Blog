@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>{{ title }}</h1>
+
+<h4>To access our content you will need to be a registered member.</h4>
+<p>Click <a href="{{ path('security_registration') }}">here</a> to create an account or <a href="{{ path('security_login') }}">right here</a> to login if you already own an account !</p>
+
+{% endblock %}

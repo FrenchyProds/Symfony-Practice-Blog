@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+
+
+<section class="articles">
+
+    {% if articles %}
+        {% for article in articles %}
+            <article>
+                <h2>{{ article.title }}</h2>
+                <div class="metadata">Written {{ article.createdAt | date('d/m/Y') }} at {{ article.createdAt | date('H:i') }} in {{ article.category.title }}</div>
+                <div class="content">
+                    <img src="{{ article.image }}" alt="">
+                    {{ article.content | raw }}
+                    <a href="{{ path('blog_show', {'id': article.id}) }}" class="btn btn-primary">Continue reading...</a>
+                </div>
+            </article
+        {% endfor %}
+    {% else %}
+        <h2>No articles have been published at this time !</h2>
+        <h3>Why don't you help us <a href="{{ path('blog_create') }}">change that ?</a></h3>
+    {% endif %}
+
+</section>
+
+{% endblock %}
